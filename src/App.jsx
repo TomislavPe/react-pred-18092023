@@ -24,11 +24,20 @@ function App() {
     })
   }
 
+  const promijeniIme = (event) => {
+   setUsers(prevState => {
+      const newUser = {name:event.target.value, years:users[1].years}
+      prevState[1] = newUser;
+      const updatedUsers = prevState;
+      return updatedUsers;
+    })
+  }
+
   return (
     <>
       <h1>State</h1>
-      <UserClass name={users[0].name} years={users[0].years} />
-      <UserFunction name={users[1].name} years={users[1].years} />
+      <UserClass name={users[0].name} years={users[0].years}/>
+      <UserFunction name={users[1].name} years={users[1].years} promijeni={promijeniIme}/>
       <UserChildren name={users[2].name} years={users[2].years}>
         {tekst}
       </UserChildren>
